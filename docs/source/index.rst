@@ -24,3 +24,4 @@ Contents
    stitching
    ophtalmology
    choroid
+   holovibes
