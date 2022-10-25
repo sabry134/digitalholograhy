@@ -23,3 +23,4 @@ Contents
    pulsewave
    stitching
    ophtalmology
+   choroid
