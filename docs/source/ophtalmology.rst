@@ -1,3 +1,6 @@
+Ophtalmology
+============
+
 .. autosummary::
    :toctree: generated
 
