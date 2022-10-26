@@ -2,14 +2,16 @@ Pulsewave
 =========
 
 
-## Pulse Wave Introduction
+Pulse Wave Introduction
+-----------------------
 Pulse wave analysis from Doppler holography
 
 
 
 Here is one picture of the video of pulse wave analysis to the program. The program called One Cycle will give such results.
 
-### Calculation of Pulse Init
+Calculation of Pulse Init
+-------------------------
 
 Let's move on the step of Pulse Init calculations. The application which has been made allows us to see the pulse init graphic, which in order words allow us to easily see every pulses and then allow us to calculate them. Here's an example: 
 
@@ -21,11 +23,12 @@ A systole is when the signal increases, which can be seen each time the pulse go
 
 We'll now move on the another part which is the Artery Mask.
 
-### Artery Mask
+Artery Mask
+-----------
 
 We'll start with a technical part in which the artery mask algorithm is shown:
 
-```
+.. code-block:: console
 function artery_mask = createArteryMask(video)
     mask = std(video, 0, 3);
     mask = imbinarize(im2gray(mask), 'adaptive', 'ForegroundPolarity', 'bright', 'Sensitivity', 0.2);
@@ -47,8 +50,8 @@ function artery_mask = createArteryMask(video)
 
     artery_mask = C > max(C(:))*0.2;
 
-end
-```
+    end
+
 
 We'll focus on this particular part of code:
 
@@ -65,7 +68,8 @@ If we watch another part of code, we'll find this:
 ```
 It is a system that correlate all pixels current pulse with the initial pulse.
 
-#### What is an Artery Mask?
+What is an Artery Mask?
+-----------------------
 
 Artery Mask allows us to find the arteries & veins for the given video implemented in the pulse wave program.
 
@@ -73,7 +77,8 @@ Artery Mask allows us to find the arteries & veins for the given video implement
 An artery Mask is the result of the correlation between pulse init & each pixel. The yellow part is represented by a binary number with the following explanation: when the binary number equals 1, it shows an artery.
 
 
-### Analysis of Complete cycles
+Analysis of Complete cycles
+---------------------------
 
 We now have a comparison between a pulse init and initial pulse 0:
 
@@ -142,7 +147,8 @@ Every stars which are shown in red represents a peak. Our goal will be to analys
 
 
 
-## OneCycle Application
+OneCycle Application
+--------------------
 
 In order to get a graphic as a result of the inputted video, you would need to use the OneCycle application.
 
@@ -159,7 +165,8 @@ The application itself is made to remove any uncomplete cycles. Which means that
 
 We'll see in the next chapter the explanations of the analysis results.
 
-## Input and Output explanations
+Input and Output explanations
+-----------------------------
 
 As you can see, the cycle is regular, it goes up and down like in the example below:
 
