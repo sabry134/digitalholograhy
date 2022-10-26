@@ -28,7 +28,7 @@ Artery Mask
 
 We'll start with a technical part in which the artery mask algorithm is shown:
 
-    ``
+    ```
     function artery_mask = createArteryMask(video)
     mask = std(video, 0, 3);
     mask = imbinarize(im2gray(mask), 'adaptive', 'ForegroundPolarity', 'bright', 'Sensitivity', 0.2);
@@ -51,7 +51,7 @@ We'll start with a technical part in which the artery mask algorithm is shown:
     artery_mask = C > max(C(:))*0.2;
 
     end
-    ``
+    ```
 
 
 We'll focus on this particular part of code:
