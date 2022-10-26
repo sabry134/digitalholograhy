@@ -28,7 +28,7 @@ Artery Mask
 
 We'll start with a technical part in which the artery mask algorithm is shown:
 
-.. autoexception:: lumache.InvalidKindError
+.. code-block:: console
     function artery_mask = createArteryMask(video)
     mask = std(video, 0, 3);
     mask = imbinarize(im2gray(mask), 'adaptive', 'ForegroundPolarity', 'bright', 'Sensitivity', 0.2);
