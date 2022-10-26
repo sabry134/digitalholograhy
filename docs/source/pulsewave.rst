@@ -128,9 +128,9 @@ plot(app.UIAxes, y(index(1):index(size(index, 2))));
 
 If we get on it further, we'll see the pulse init calculation init, represented by the following code:
 
-``
+```
 y = y/max(pulse_init);
-``
+```
 
 Then after doing this calculation, we'll use the detrend function for this:
 
