@@ -28,8 +28,7 @@ Artery Mask
 
 We'll start with a technical part in which the artery mask algorithm is shown:
 
-.. autoexception:: lumache.InvalidKindError
-
+    ``
     function artery_mask = createArteryMask(video)
     mask = std(video, 0, 3);
     mask = imbinarize(im2gray(mask), 'adaptive', 'ForegroundPolarity', 'bright', 'Sensitivity', 0.2);
@@ -52,13 +51,14 @@ We'll start with a technical part in which the artery mask algorithm is shown:
     artery_mask = C > max(C(:))*0.2;
 
     end
+    ``
 
 
 We'll focus on this particular part of code:
 
-```
+``
     pulse_init = pulse - mean(pulse, "all");
-```
+``
 
 This part shows an initial pulse : this is the first assessment of averaged pulse wave.
 
@@ -128,9 +128,9 @@ plot(app.UIAxes, y(index(1):index(size(index, 2))));
 
 If we get on it further, we'll see the pulse init calculation init, represented by the following code:
 
-```
+``
 y = y/max(pulse_init);
-```
+``
 
 Then after doing this calculation, we'll use the detrend function for this:
 
