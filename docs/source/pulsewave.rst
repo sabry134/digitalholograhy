@@ -95,32 +95,32 @@ The goal is to delete incomplete cycles.
 
 To do so, we used an algorithm of an application to analyse the cycles, let's watch it::
 
-
-filepath = uigetfile("*");
-V = VideoReader(filepath);
-video = zeros(V.Height, V.Width, V.NumFrames);        
-for n = 1 : V.NumFrames
-    video(:,:,n) = rgb2gray(read(V, n));
-end
-for pp = 1:size(video, 3)
-    video(:,:,pp) = video(:,:,pp) ./ mean(video(:,:,pp), [1 2]);
-end
-mask = std(video, 0, 3);
-mask = imbinarize(im2gray(mask), 'adaptive', 'ForegroundPolarity', 'bright', 'Sensitivity', 0.2);
-pulse = squeeze(mean(video .* mask, [1 2]));
-pulse_init = pulse - mean(pulse, "all");
-y = pulse_init;
-y = y/max(pulse_init);
-y = detrend(y);
-m = islocalmin(y);
-jj = 1;
-for ii = 1:size(m)
-    if m(ii) && y(ii) < 0
-        index(jj) = ii;
-        jj = jj + 1;
+    
+    filepath = uigetfile("*");
+    V = VideoReader(filepath);
+    video = zeros(V.Height, V.Width, V.NumFrames);        
+    for n = 1 : V.NumFrames
+        video(:,:,n) = rgb2gray(read(V, n));
     end
-end
-plot(app.UIAxes, y(index(1):index(size(index, 2))));
+    for pp = 1:size(video, 3)
+        video(:,:,pp) = video(:,:,pp) ./ mean(video(:,:,pp), [1 2]);
+    end
+    mask = std(video, 0, 3);
+    mask = imbinarize(im2gray(mask), 'adaptive', 'ForegroundPolarity', 'bright', 'Sensitivity', 0.2);
+    pulse = squeeze(mean(video .* mask, [1 2]));
+    pulse_init = pulse - mean(pulse, "all");
+    y = pulse_init;
+    y = y/max(pulse_init);
+    y = detrend(y);
+    m = islocalmin(y);
+    jj = 1;
+    for ii = 1:size(m)
+        if m(ii) && y(ii) < 0
+            index(jj) = ii;
+            jj = jj + 1;
+        end
+    end
+    plot(app.UIAxes, y(index(1):index(size(index, 2))));
 
 
 If we get on it further, we'll see the pulse init calculation init, represented by the following code::
