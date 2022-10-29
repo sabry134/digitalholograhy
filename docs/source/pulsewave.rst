@@ -26,9 +26,8 @@ We'll now move on the another part which is the Artery Mask.
 Artery Mask
 -----------
 
-We'll start with a technical part in which the artery mask algorithm is shown:
+We'll start with a technical part in which the artery mask algorithm is shown::
 
-    ```
     function artery_mask = createArteryMask(video)
     mask = std(video, 0, 3);
     mask = imbinarize(im2gray(mask), 'adaptive', 'ForegroundPolarity', 'bright', 'Sensitivity', 0.2);
@@ -51,22 +50,20 @@ We'll start with a technical part in which the artery mask algorithm is shown:
     artery_mask = C > max(C(:))*0.2;
 
     end
-    ```
 
 
-We'll focus on this particular part of code:
+We'll focus on this particular part of code::
 
-``
     pulse_init = pulse - mean(pulse, "all");
-``
+
 
 This part shows an initial pulse : this is the first assessment of averaged pulse wave.
 
-If we watch another part of code, we'll find this:
+If we watch another part of code, we'll find this::
 
-```
+
     C = C .* pulse_init_3d;
-```
+
 It is a system that correlate all pixels current pulse with the initial pulse.
 
 What is an Artery Mask?
@@ -96,9 +93,9 @@ Moving on further, another application has been developed in which the goal is t
 
 The goal is to delete incomplete cycles.
 
-To do so, we used an algorithm of an application to analyse the cycles, let's watch it: 
+To do so, we used an algorithm of an application to analyse the cycles, let's watch it::
 
-```
+
 filepath = uigetfile("*");
 V = VideoReader(filepath);
 video = zeros(V.Height, V.Width, V.NumFrames);        
@@ -124,19 +121,19 @@ for ii = 1:size(m)
     end
 end
 plot(app.UIAxes, y(index(1):index(size(index, 2))));
-```
 
-If we get on it further, we'll see the pulse init calculation init, represented by the following code:
 
-```
+If we get on it further, we'll see the pulse init calculation init, represented by the following code::
+
+
 y = y/max(pulse_init);
-```
 
-Then after doing this calculation, we'll use the detrend function for this:
 
-```
+Then after doing this calculation, we'll use the detrend function for this::
+
+
 y = detrend(y);
-```
+
 
 This is how it is used in our algorithm. It represents the detrend application of a pulse init.
 
