@@ -126,13 +126,13 @@ To do so, we used an algorithm of an application to analyse the cycles, let's wa
 If we get on it further, we'll see the pulse init calculation init, represented by the following code::
 
 
-y = y/max(pulse_init);
+    y = y/max(pulse_init);
 
 
 Then after doing this calculation, we'll use the detrend function for this::
 
 
-y = detrend(y);
+    y = detrend(y);
 
 
 This is how it is used in our algorithm. It represents the detrend application of a pulse init.
