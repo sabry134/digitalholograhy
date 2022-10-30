@@ -1,6 +1,12 @@
 Usage
 =====
 
+
+.. note::
+
+   This project is under active development.
+
+
 .. _installation:
 
 Installation
