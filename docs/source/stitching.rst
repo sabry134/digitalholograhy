@@ -2,6 +2,11 @@ Stitching
 =========
 
 
+.. note::
+
+   This project is under active development.
+
+
 For example::
 
     import os
